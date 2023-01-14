@@ -1,7 +1,7 @@
 async function getData() {
     const res = await fetch('https://api.mindwords.info/post/this-is-a-title', {
         cache: "force-cache",
-        next: {revalidate: 10}
+        next: {revalidate: 30}
     })
   return res.json()
 }
