@@ -1,10 +1,12 @@
 'use client';
 
 import React from "react";
-import {Radio, ConfigProvider, Space} from 'antd';
+import {ConfigProvider, Layout} from 'antd';
+
+const {Header, Content, Footer} = Layout;
 export default function AntDTheme({
-                                            children,
-                                        }: {
+                                      children,
+                                  }: {
     children: React.ReactNode
 }) {
     return (
@@ -16,8 +18,7 @@ export default function AntDTheme({
                     },
                 }}
             >
-                <Radio>Radio</Radio>
-            {children}
+                    {children}
             </ConfigProvider>
         </>
     );

@@ -1,9 +1,9 @@
 import "server-only";
-export async function getData() {
+export async function getData({pagination}: { pagination: {pageNumber:number,limitPerPage:number} }) {
     const objectWithData = {
         "pagination":{
-            "pageNumber":1,
-            "limitPerPage":100
+            "pageNumber":pagination.pageNumber,
+            "limitPerPage":pagination.limitPerPage
         },
         "query":{
 

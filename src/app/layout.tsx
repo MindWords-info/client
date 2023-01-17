@@ -1,7 +1,5 @@
-import 'antd/es/style/reset.css'
 import React from "react";
-import * as process from "process";
-
+import '../utils/style/index.css'
 export default function RootLayout({
                                        children,
                                    }: {
@@ -10,7 +8,10 @@ export default function RootLayout({
     return (
         <html lang="en">
         <head/>
-            <body>{children}</body>
+            <body className="container mx-auto">
+
+            {children}
+            </body>
         </html>
     )
 }
