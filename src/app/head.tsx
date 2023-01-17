@@ -1,4 +1,4 @@
-export default function Head({post}:{post:any}) {
+export default function Head() {
   return (
     <>
       <title>title</title>
