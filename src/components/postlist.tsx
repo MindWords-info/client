@@ -1,22 +1,41 @@
 'use client';
 
-import {Card, Spin} from "antd";
+import {Avatar, Card, Divider, Spin, Tag} from "antd";
 import React, {useState} from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import {UserOutlined} from "@ant-design/icons";
+import Link from "next/link";
 export default function Postlist({
-                                      post,
+                                      postData,
                                   }: {
-    post: any
+    postData: any
 }) {
     const list: JSX.Element[] = []
 
+    console.log(postData)
 
+    postData.data.posts.forEach((post:any) => {
+        const date = new Date(post.createdAt).toLocaleDateString('en-EN', {  year:"numeric", month:"short", day:"numeric"})
+        list.push(<Card>
+            <div className="flex gap-1 items-center mb-3">
+                <Avatar size="small" icon={<UserOutlined />} />
+                <p>{post.author.userName}</p>
+                <p>.</p>
+                <div>{date}</div>
+            </div>
+            <Link href="/about">
+            <div className="grid grid-cols-8  mb-3">
 
-    post.data.posts.forEach((p:any) => {
-        list.push(<Card title={p.title} bordered={false} style={{ height: 500 }}>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
+                <div className="col-span-6">
+                    <h1 className="text-2xl font-extrabold mb-1.5">{post.title}</h1>
+                    <p>{post.shortDescription}</p>
+                </div>
+                <div className="col-span-2">
+                    <img className="rounded max-h-[10rem] max-w-[10rem]" src={post.images.coverImage? `https://api.mindwords.info/files/uploads/${post.images.coverImage}` : 'https://shafi-org.github.io/portfolio/assets/img_1.png'} alt=""/>
+                </div>
+            </div>
+            </Link>
+            <Tag>Tag 1</Tag>
         </Card>)
     })
     const [items, setItems] = useState(list);
@@ -48,12 +67,29 @@ export default function Postlist({
                 })
 
             const postsRes = await res.json()
-            postsRes.data.posts.forEach((p:any) => {
-                oldpost.push(<Card title={p.title} bordered={false} style={{ height: 500 }}>
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
-                </Card>)
+            postsRes.data.posts.forEach((post:any) => {
+                const date = new Date(post.createdAt).toLocaleDateString('en-EN', {  year:"numeric", month:"short", day:"numeric"})
+                oldpost.push(<div>
+                    <div className="flex gap-1 items-center mb-3">
+                        <Avatar size="small" icon={<UserOutlined />} />
+                        <p>{post.author.userName}</p>
+                        <p>.</p>
+                        <div>{date}</div>
+                    </div>
+                    <Link href="/about">
+                        <div className="grid grid-cols-8 gap-6 mb-3">
+
+                            <div className="col-span-6">
+                                <h1 className="text-2xl font-extrabold mb-1.5">{post.title}</h1>
+                                <p>{post.shortDescription}</p>
+                            </div>
+                            <div className="col-span-2">
+                                <img className="rounded max-h-[10rem] max-w-[10rem]" src={post.images.coverImage? `https://api.mindwords.info/files/uploads/${post.images.coverImage}` : 'https://shafi-org.github.io/portfolio/assets/img_1.png'} alt=""/>
+                            </div>
+                        </div>
+                    </Link>
+                    <Tag>Tag 1</Tag>
+                </div>)
             })
             setPageNumber(pageNumber+1)
             setItems(oldpost)
@@ -64,13 +100,13 @@ export default function Postlist({
             <InfiniteScroll
                 dataLength={items.length}
                 next={fetchMoreData}
-                hasMore={items.length<post.data.count}
+                hasMore={items.length<postData.data.count}
                 loader={ <div style={{ textAlign: "center" }}>
                     <Spin />
                 </div>}
             >
                 {items.map((i, index) => (
-                    <div key={index}>
+                    <div key={index} className="space-y-3 py-3">
                         {items[index]}
                     </div>
                 ))}
