@@ -1,5 +1,5 @@
 import "server-only";
-export async function getData({pagination}: { pagination: {pageNumber:number,limitPerPage:number} }) {
+export async function getPosts({pagination}: { pagination: {pageNumber:number,limitPerPage:number} }) {
     const objectWithData = {
         "pagination":{
             "pageNumber":pagination.pageNumber,
@@ -24,4 +24,10 @@ export async function getData({pagination}: { pagination: {pageNumber:number,lim
             next: {revalidate: 60 * 5}
         })
     return res.json()
+}
+
+export async function getPost({postUrl}: { postUrl: string }) {
+    const res = await fetch('http://localhost:8000/post/'+postUrl)
+    const ggg = res.json()
+    return ggg
 }
