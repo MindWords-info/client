@@ -1,4 +1,4 @@
-
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 a{
@@ -14,4 +14,34 @@ a{
 .ant-row-rtl #components-layout-demo-top .logo {
     float: right;
     margin: 16px 0 16px 24px;
+}
+.editorjs img{
+    max-width: 42rem;
+}
+
+h1{
+    font-size: 38px;
+}
+
+h2{
+    font-size: 30px;
+}
+
+h3{
+    font-size: 24px;
+}
+
+h4{
+    font-size: 20px;
+}
+
+h5{
+    font-size: 16px;
+}
+
+h6{
+    font-size: 14px;
+}
+p{
+    font-size: 12px;
 }

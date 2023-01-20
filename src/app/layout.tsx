@@ -1,5 +1,6 @@
 import React from "react";
 import '../utils/style/index.css'
+import AntDTheme from "@/components/antdTheme";
 export default function RootLayout({
                                        children,
                                    }: {
@@ -9,8 +10,9 @@ export default function RootLayout({
         <html lang="en">
         <head/>
             <body >
-
+            <AntDTheme>
             {children}
+            </AntDTheme>
             </body>
         </html>
     )

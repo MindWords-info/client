@@ -1,9 +1,44 @@
 'use client';
-
-import React from "react";
-import {Button, ConfigProvider, Layout, theme} from 'antd';
+import '../utils/style/index.css'
+import React, {useState} from "react";
+import {AutoComplete, Input, ConfigProvider, Layout, Select, theme, SelectProps} from 'antd';
+import Link from "next/link";
 
 const {Header, Content, Footer} = Layout;
+
+
+const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const searchResult = (query: string) =>
+    new Array(getRandomInt(5))
+        .join('.')
+        .split('.')
+        .map((_, idx) => {
+            const category = `${query}${idx}`;
+            return {
+                value: category,
+                label: (
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+            <span>
+              Found {query} on{' '}
+                <a
+                    href={`https://s.taobao.com/search?q=${query}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                {category}
+              </a>
+            </span>
+                        <span>{getRandomInt(200, 100)} results</span>
+                    </div>
+                ),
+            };
+        });
 export default function AntDTheme({
                                       children,
                                   }: {
@@ -12,6 +47,14 @@ export default function AntDTheme({
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+    const [options, setOptions] = useState<SelectProps<object>['options']>([]);
+    const handleSearch = (value: string) => {
+        setOptions(value ? searchResult(value) : []);
+    };
+
+    const onSelect = (value: string) => {
+        console.log('onSelect', value);
+    };
     return (
         <>
             <ConfigProvider
@@ -26,14 +69,26 @@ export default function AntDTheme({
                 <Layout>
                     <Header style={{
                         background: colorBgContainer,
-                    }} className='flex items-center'>
-                        <div className="text-2xl font-extrabold">
-                            MindWords
-                        </div>
+                        position: 'sticky', top: 0, zIndex: 1,
+                    }} className='flex items-center justify-between'>
+                        <Link href="/">
+                            <div className="text-2xl font-extrabold">
+                                MindWords
+                            </div>
+                        </Link>
+                        <AutoComplete
+                            dropdownMatchSelectWidth={252}
+                            style={{ width: 300 }}
+                            options={options}
+                            onSelect={onSelect}
+                            onSearch={handleSearch}
+                        >
+                            <Input.Search size="large" placeholder="input here" />
+                        </AutoComplete>
                     </Header>
                     <Layout>
                         <Content style={{ margin: '24px 16px 0' }}>
-                            <div style={{ padding: 24, minHeight: 750, background: colorBgContainer }}>{children}</div>
+                            <div style={{ padding: 24, minHeight: 300, background: colorBgContainer }}>{children}</div>
                         </Content>
 
                     </Layout>
