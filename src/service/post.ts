@@ -13,7 +13,7 @@ export async function getPosts({pagination}: { pagination: {pageNumber:number,li
             "sortOrder": -1
         }
     }
-    const res = await fetch('http://localhost:8000/post',
+    const res = await fetch('https://api.mindwords.info/post',
         {
             body:JSON.stringify(objectWithData),
             cache: "force-cache",
@@ -27,7 +27,7 @@ export async function getPosts({pagination}: { pagination: {pageNumber:number,li
 }
 
 export async function getPost({postUrl}: { postUrl: string }) {
-    const res = await fetch('http://localhost:8000/post/'+postUrl)
+    const res = await fetch('https://api.mindwords.info/post/'+postUrl)
     const ggg = res.json()
     return ggg
 }
