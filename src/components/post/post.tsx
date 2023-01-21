@@ -10,7 +10,7 @@ export default function Post({
 post: any
 }) {
     let coverImage = ''
-    if(post.images.coverImage){
+    if(post?.images?.coverImage){
         coverImage = `https://api.mindwords.info/files/uploads/${post.images.coverImage}`
     }
     return (
