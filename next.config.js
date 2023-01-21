@@ -8,7 +8,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'api.mindwords.info',
-        port: '8000',
+        port: '',
         pathname: '/files/uploads/**',
       },
     ],
