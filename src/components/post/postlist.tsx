@@ -22,37 +22,35 @@ export default function Postlist({
     const [pageNumber, setPageNumber] = useState(2);
     async function fetchMoreData(){
 
-        setTimeout(async () => {
-            const oldpost = items
-            const objectWithData = {
-                "pagination":{
-                    "pageNumber":pageNumber,
-                    "limitPerPage":2
-                },
-                "query":{
+        const oldpost = items
+        const objectWithData = {
+            "pagination":{
+                "pageNumber":pageNumber,
+                "limitPerPage":2
+            },
+            "query":{
 
-                },
-                "sort":{
-                    "sortBy":"createdAt",
-                    "sortOrder": -1
-                }
+            },
+            "sort":{
+                "sortBy":"createdAt",
+                "sortOrder": -1
             }
-            const res = await fetch('https://api.mindwords.info/post',
-                {
-                    body:JSON.stringify(objectWithData),
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-
-            const postsRes = await res.json()
-            postsRes.data.posts.forEach((post:any) => {
-                oldpost.push(gg(post))
+        }
+        const res = await fetch(`https://api.mindwords.xyz/post`,
+            {
+                body:JSON.stringify(objectWithData),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             })
-            setPageNumber(pageNumber+1)
-            setItems(oldpost)
-        }, 3000);
+
+        const postsRes = await res.json()
+        postsRes.data.posts.forEach((post:any) => {
+            oldpost.push(gg(post))
+        })
+        setPageNumber(pageNumber+1)
+        setItems(oldpost)
     }
     return (
 
@@ -74,10 +72,11 @@ export default function Postlist({
 }
 
 function gg(post:any){
+
     const date = new Date(post.createdAt).toLocaleDateString('en-EN', {  year:"numeric", month:"short", day:"numeric"})
     let coverImage = ''
     if(post.images.coverImage){
-        coverImage = `https://api.mindwords.info/files/uploads/${post.images.coverImage}`
+        coverImage = `https://api.mindwords.xyz/files/uploads/${post.images.coverImage}`
     }
     let slug ='/post/'
     if(post.slug){

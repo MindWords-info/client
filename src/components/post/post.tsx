@@ -11,7 +11,7 @@ post: any
 }) {
     let coverImage = ''
     if(post?.images?.coverImage){
-        coverImage = `https://api.mindwords.info/files/uploads/${post.images.coverImage}`
+        coverImage = `https://api.mindwords.xyz/files/uploads/${post.images.coverImage}`
     }
     return (
         <>
@@ -27,6 +27,7 @@ post: any
 }
 
 function image(coverImage:string){
+    console.log(coverImage)
     if(coverImage) {
         return<Image
             src={coverImage}

@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.mindwords.info',
+        hostname: 'api.mindwords.xyz',
         port: '',
         pathname: '/files/uploads/**',
       },
