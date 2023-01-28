@@ -3,7 +3,7 @@
 import React from "react";
 import {Card, Spin} from 'antd';
 import Image from "next/image";
-import EditorJsRenderer from "@/components/editorjs/EditorJsRenderer";
+
 export default function Post({
     post,
 }: {
@@ -15,12 +15,14 @@ post: any
     }
     return (
         <>
-        <Card>
+        <Card className="p-0">
                 {image(coverImage)}
-               <div>
-                <h1>{post.title}</h1>
-                </div>
-                   {post.details && <EditorJsRenderer data={post.details} />}
+               <div className="p-6">
+                   <div>
+                       <h1 className="font-extrabold">{post.title}</h1>
+                   </div>
+                   <div dangerouslySetInnerHTML={{__html:post.detailsHtml}}></div>
+               </div>
                </Card>
         </>
     );

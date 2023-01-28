@@ -1,6 +1,5 @@
 import React from "react";
 import { getPost } from "@/service/post";
-
 import Leftsidebar from "@/components/post/leftsidebar";
 import Post from "@/components/post/post";
 import Rightsitebar from "@/components/post/rightsitebar";
@@ -16,7 +15,7 @@ export default async function Loader({ params }: { params: { id: any } }) {
             <Leftsidebar></Leftsidebar>
           </nav>
         </div>
-        <div className="col-span-8">
+        <div className="col-span-8 post">
           <Post post={post.data}></Post>
         </div>
         <div className="col-span-3 "> <div className="space-y-2 fixed max-w-xs">

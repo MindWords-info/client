@@ -7,7 +7,7 @@ export default async function Home() {
     return (
 
                <div className=" container mx-auto">
-                   <div className="col-span-3 border-r px-3">
+                   <div className="col-span-3 px-3">
                        <Postlist postData={post}></Postlist>
                    </div>
                </div>

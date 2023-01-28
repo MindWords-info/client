@@ -45,3 +45,59 @@ h6{
 p{
     font-size: 12px;
 }
+pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#101010;background:#fff}.hljs ::selection,.hljs::selection{background-color:#d0d0d0;color:#101010}.hljs-comment{color:#b0b0b0}.hljs-tag{color:#000}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#101010}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#ff0086}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#fd8900}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#aba800}.hljs-strong{font-weight:700;color:#aba800}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#00c918}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#1faaaa}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#3777e6}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#ad00a1}.hljs-emphasis{color:#ad00a1;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#c63}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+
+.post p{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.post table{
+    @apply min-w-full divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg my-3
+}
+.post table thead{
+    @apply bg-gray-50
+}
+.post th{
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider
+}
+
+.post tbody {
+    @apply bg-white divide-y divide-gray-200 my-3
+}
+
+.post td {
+    @apply px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900
+}
+
+.post pre {
+    @apply bg-gray-800 p-3 rounded text-white my-3
+}
+
+.post figure {
+    @apply my-3
+}
+.post figure figcaption{
+    @apply italic text-center
+}
+.post .inline-code {
+    background: rgba(250, 239, 240, 0.78);
+    color: #b44437;
+    padding: 3px 4px;
+    border-radius: 5px;
+    margin: 0 1px;
+    font-family: inherit;
+    font-size: 0.86em;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+.post .cdx-marker {
+    background: rgba(245,235,111,0.29);
+    padding: 3px 0;
+}
+.post .ant-card-body{
+    padding: 0;
+}
+.post blockquote {
+    @apply p-3 my-3 border-l-2 border-gray-300 bg-gray-50
+}
