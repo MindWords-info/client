@@ -91,14 +91,18 @@ function gg(post:any){
                 <div>{date}</div>
             </div>
             <Link href={slug}>
-                <div className="grid grid-cols-8  mb-3">
+                <div className="grid md:grid-cols-8 grid-cols-1 mb-3">
 
-                    <div className="col-span-6">
-                        <h1 className="text-2xl font-extrabold mb-1.5">{post.title}</h1>
-                        <p>{post.shortDescription}</p>
+                    <div className="col-span-6 hidden md:block">
+                        <h1 className="text-3xl font-extrabold mb-1.5">{post.title}</h1>
+                        <p className="text-lg">{post.shortDescription}</p>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-2 w-full">
                         {image(coverImage)}
+                    </div>
+                    <div className="col-span-6 visible md:hidden">
+                        <h1 className="text-3xl font-extrabold mb-1.5">{post.title}</h1>
+                        <p className="text-lg">{post.shortDescription}</p>
                     </div>
                 </div>
             </Link>
@@ -115,6 +119,7 @@ function image(coverImage:string){
             height={160}
             blurDataURL={coverImage}
             placeholder="blur"
+            className="w-full"
         />;
     }
     else {

@@ -7,7 +7,7 @@ import {AntDesignOutlined} from "@ant-design/icons";
 export default function Rightsitebar() {
     return (
         <>
-            <Card>
+            <Card style={{width:'100%'}}>
                 <div>
                     <div className="flex justify-center">
                         <Avatar

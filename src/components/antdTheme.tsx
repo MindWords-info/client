@@ -55,6 +55,13 @@ export default function AntDTheme({
     const onSelect = (value: string) => {
         console.log('onSelect', value);
     };
+
+    const headerStyle = {
+        '@media (max-width: 640px)': {
+            display: 'none',
+        },
+
+    };
     return (
         <>
             <ConfigProvider
@@ -70,9 +77,10 @@ export default function AntDTheme({
                     <Header style={{
                         background: colorBgContainer,
                         position: 'sticky', top: 0, zIndex: 1,
-                    }} className='flex items-center justify-between'>
+                    }
+                    } className='flex items-center justify-between gap-6'>
                         <Link href="/">
-                            <div className="text-2xl font-extrabold">
+                            <div className="md:text-2xl font-extrabold">
                                 MindWords
                             </div>
                         </Link>
@@ -83,12 +91,12 @@ export default function AntDTheme({
                             onSelect={onSelect}
                             onSearch={handleSearch}
                         >
-                            <Input.Search size="large" placeholder="input here" />
+                            <Input.Search size="large" placeholder="Search Post..." />
                         </AutoComplete>
                     </Header>
                     <Layout>
                         <Content style={{ margin: '24px 16px 0' }}>
-                            <div style={{ padding: 24, minHeight: 300, background: colorBgContainer }}>{children}</div>
+                            <div style={{ minHeight: 300, background: colorBgContainer }}>{children}</div>
                         </Content>
 
                     </Layout>

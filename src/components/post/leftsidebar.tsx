@@ -11,13 +11,13 @@ const content = (
 );
 export default function Leftsidebar() {
     return (
-        <>
+        <div className="flex flex-row justify-between md:flex-col gap-3 md:items-center px-6 py-3">
             <Button className="flex justify-center items-center" shape="circle" icon={<LikeOutlined />} />
             <Button className="flex justify-center items-center"  shape="circle" icon={<CommentOutlined />} />
             <Popover placement="rightTop" title="Share" content={content} trigger="click">
                 <Button className="flex justify-center items-center"  shape="circle" icon={<ShareAltOutlined />} />
             </Popover>
             <Button className="flex justify-center items-center"  shape="circle" icon={<DiffOutlined />} />
-        </>
+        </div>
     );
 }
