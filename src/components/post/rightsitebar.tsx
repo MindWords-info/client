@@ -21,9 +21,9 @@ export default function Rightsitebar({
                         />
 
                     </div>
-                    <h4 className="flex justify-center">{author.userName}</h4>
-                    <div className="flex justify-center">{author.email}</div>
-                    <div>{author.bio}</div>
+                    <h4 className="flex justify-center">{author?.userName || ''}</h4>
+                    <div className="flex justify-center">{author?.email || ''}</div>
+                    <div>{author?.bio || ''}</div>
                     <br/>
                     <SocialMedias socialMedias={[
                         {

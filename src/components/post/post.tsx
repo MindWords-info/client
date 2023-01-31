@@ -24,7 +24,7 @@ post: any
                        <div className="flex gap-3 items-center">
                            <Avatar size="large" icon={<UserOutlined />} />
                           <div>
-                              <h6 className="text-[12px]">{post.author.userName}</h6>
+                              <h6 className="text-[12px]">{post.author?.userName || ''}</h6>
                               <h6 className="text-[12px]">Posted {date}</h6>
                           </div>
                        </div>
@@ -41,7 +41,7 @@ post: any
 
 function image(coverImage:string){
     console.log(coverImage)
-    if(coverImage) {
+    if(coverImage !=='') {
         return<Image
             src={coverImage}
             alt=''
