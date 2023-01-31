@@ -193,4 +193,6 @@ code.hljs {
 .post blockquote {
     @apply p-3 my-3 border-l-2 border-gray-300 bg-gray-50
 }
-
+.ant-input-search-button{
+    @apply flex justify-center items-center
+}

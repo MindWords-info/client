@@ -3,11 +3,16 @@
 import React from "react";
 import {Avatar, Card, Divider} from "antd";
 import {AntDesignOutlined} from "@ant-design/icons";
+import SocialMedias from "@/components/post/social-media-link/socialmedias";
 
-export default function Rightsitebar() {
+export default function Rightsitebar({
+                                         author,
+                                     }: {
+    author: any
+}) {
     return (
         <>
-            <Card style={{width:'100%'}}>
+            <Card style={{minWidth:300,width:'100%'}} className="md:w-xs ">
                 <div>
                     <div className="flex justify-center">
                         <Avatar
@@ -16,19 +21,16 @@ export default function Rightsitebar() {
                         />
 
                     </div>
-                    <div className="flex justify-center">Name</div>
-                    <div>Bio</div>
+                    <h4 className="flex justify-center">{author.userName}</h4>
+                    <div className="flex justify-center">{author.email}</div>
+                    <div>{author.bio}</div>
                     <br/>
-                    <div className="flex gap-3 flex-wrap">
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                        <div>dgsdfsd</div>
-                    </div>
+                    <SocialMedias socialMedias={[
+                        {
+                            platform: 'FACEBOOK',
+                            link: 'string',
+                        }
+                    ]}/>
                     <Divider></Divider>
                     <div></div>
                 </div>

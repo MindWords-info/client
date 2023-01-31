@@ -22,8 +22,8 @@ export default function handler(req: NextRequest) {
         const hasColor = searchParams.has('color');
 
         // add default title
-        const title = hasTitle? searchParams.get('title')?.slice(0, 100): 'Minimal blog';
-        const image = hasImage? searchParams.get('image'): 'https://tailwindcss.com/_next/static/media/sarah-dayan.a620c98f.jpg';
+        const title = hasTitle? searchParams.get('title'): 'MindWords.info';
+        const image = hasImage? searchParams.get('image'): '/baseOg.png';
 
         // add default BgColor
         const BgColor = hasBgColor? searchParams.get('BgColor'): 'lightblue';
@@ -46,14 +46,12 @@ export default function handler(req: NextRequest) {
                     <div tw="flex justify-between items-center h-full w-full">
                         <div tw="flex flex-col max-w-3/5">
                             <p tw="text-6xl flex">{title}</p>
-                            <div>post info</div>
                         </div>
                         <div tw="flex h-94 w-94">
                             <img tw="max-w-96 max-h-96 rounded" src={image!}/>
                         </div>
 
                     </div>
-                    <div>Author info</div>
                 </div>
             ),
             {

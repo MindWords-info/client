@@ -91,13 +91,13 @@ function gg(post:any){
                 <div>{date}</div>
             </div>
             <Link href={slug}>
-                <div className="grid md:grid-cols-8 grid-cols-1 mb-3">
+                <div className="grid md:grid-cols-8 grid-cols-1 mb-3 place-content-between">
 
                     <div className="col-span-6 hidden md:block">
                         <h1 className="text-3xl font-extrabold mb-1.5">{post.title}</h1>
                         <p className="text-lg">{post.shortDescription}</p>
                     </div>
-                    <div className="col-span-2 w-full">
+                    <div className="col-span-2 w-full flex justify-center items-center">
                         {image(coverImage)}
                     </div>
                     <div className="col-span-6 visible md:hidden">
@@ -106,21 +106,23 @@ function gg(post:any){
                     </div>
                 </div>
             </Link>
-            <Tag>Tag 1</Tag>
+            {/*<Tag>Tag 1</Tag>*/}
         </Card>
     )
 }
 function image(coverImage:string){
     if(coverImage) {
-        return<Image
-            src={coverImage}
-            alt=''
-            width={160}
-            height={160}
-            blurDataURL={coverImage}
-            placeholder="blur"
-            className="w-full"
-        />;
+        return <div className="w-36">
+            <Image
+                src={coverImage}
+                alt=''
+                width={160}
+                height={160}
+                blurDataURL={coverImage}
+                placeholder="blur"
+                className="w-full"
+            />
+        </div>;
     }
     else {
         return <></>;

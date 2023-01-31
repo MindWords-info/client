@@ -69,6 +69,7 @@ export default function AntDTheme({
                     token: {
                         colorPrimary: '#262626',
                         colorInfoHover: '#262626',
+                        colorTextPlaceholder:'rgba(0,0,0,0.53)'
                     },
                 }}
             >
@@ -78,7 +79,7 @@ export default function AntDTheme({
                         background: colorBgContainer,
                         position: 'sticky', top: 0, zIndex: 1,
                     }
-                    } className='flex items-center justify-between gap-6'>
+                    } className='flex items-center justify-between gap-6 shadow-sm'>
                         <Link href="/">
                             <div className="md:text-2xl font-extrabold">
                                 MindWords
@@ -91,11 +92,11 @@ export default function AntDTheme({
                             onSelect={onSelect}
                             onSearch={handleSearch}
                         >
-                            <Input.Search size="large" placeholder="Search Post..." />
+                            <Input.Search size="large" className="placeholder-gray-500" placeholder="Search Post..." />
                         </AutoComplete>
                     </Header>
                     <Layout>
-                        <Content style={{ margin: '24px 16px 0' }}>
+                        <Content>
                             <div style={{ minHeight: 300, background: colorBgContainer }}>{children}</div>
                         </Content>
 

@@ -1,12 +1,22 @@
-
+'use client';
 import React from "react";
-
+import {Card, Spin} from "antd";
+import Postlist from "@/components/post/postlist";
+import Image from "next/image";
 
 
 export default function Loading() {
     return (
-        <div className="flex justify-center items-center h-full">
-            <span className="animate-ping inline-flex h-12 w-12 rounded-full bg-[#262626] opacity-75"></span>
+        <div className=" container mx-auto">
+        <div className="flex justify-center items-center min-h-[300px]">
+            <Image
+                priority
+                src="/loading.svg"
+                height={100}
+                width={100}
+                alt="Follow us on Twitter"
+            />
+        </div>
         </div>
     )
 }

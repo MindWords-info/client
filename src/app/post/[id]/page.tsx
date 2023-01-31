@@ -11,15 +11,15 @@ export default async function Loader({ params }: { params: { id: any } }) {
     <div className="md:container md:mx-auto">
       <div className="grid md:grid-cols-12 grid-cols-1 md:gap-6 space-y-6">
         <div className="col-span-1">
-          <nav className="space-y-2 md:fixed  hidden md:block">
+          <nav className="space-y-2 md:fixed  hidden md:block md:mt-3">
             <Leftsidebar></Leftsidebar>
           </nav>
         </div>
         <div className="col-span-8 post">
           <Post post={post.data}></Post>
         </div>
-        <div className="col-span-3 "> <div className="space-y-2 md:fixed md:max-w-xs">
-          <Rightsitebar></Rightsitebar>
+        <div className="col-span-3 "> <div className="space-y-2 md:fixed md:w-xs ">
+          <Rightsitebar author={post.data.author}></Rightsitebar>
         </div></div>
       </div>
       <nav className="space-y-2 fixed visible md:hidden bottom-0 bg-white w-full">
