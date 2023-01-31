@@ -2,7 +2,7 @@
 
 import React from "react";
 import {Avatar, Card, Divider} from "antd";
-import {AntDesignOutlined} from "@ant-design/icons";
+import {UserOutlined} from "@ant-design/icons";
 import SocialMedias from "@/components/post/social-media-link/socialmedias";
 
 export default function Rightsitebar({
@@ -17,7 +17,7 @@ export default function Rightsitebar({
                     <div className="flex justify-center">
                         <Avatar
                             size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-                            icon={<AntDesignOutlined />}
+                            icon={<UserOutlined />}
                         />
 
                     </div>
@@ -25,12 +25,7 @@ export default function Rightsitebar({
                     <div className="flex justify-center">{author?.email || ''}</div>
                     <div>{author?.bio || ''}</div>
                     <br/>
-                    <SocialMedias socialMedias={[
-                        {
-                            platform: 'FACEBOOK',
-                            link: 'string',
-                        }
-                    ]}/>
+                    <SocialMedias socialMedias={author?.socialMedia||[]}/>
                     <Divider></Divider>
                     <div></div>
                 </div>

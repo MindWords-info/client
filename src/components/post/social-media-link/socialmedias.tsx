@@ -10,12 +10,14 @@ export default function SocialMedias({socialMedias}: {
         }[]
 }) {
     const socialMedia:any = []
-    socialMedias.forEach((socialMedias:{
-        platform: string,
-        link: string,
-    })=>{
-        socialMedia.push(SocialMedia({socialMedia: socialMedias}));
-    })
+    if(socialMedias.length>0){
+        socialMedias.forEach((socialMedias:{
+            platform: string,
+            link: string,
+        })=>{
+            socialMedia.push(SocialMedia({socialMedia: socialMedias}));
+        })
+    }
     return (
         <div className="flex gap-3 flex-wrap">
             {socialMedia}
