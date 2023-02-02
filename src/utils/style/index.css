@@ -28,6 +28,7 @@ h1 {
 
 h2 {
     font-size: 30px;
+    @apply font-bold
 }
 
 h3 {
@@ -135,6 +136,8 @@ code.hljs {
 .post p {
     font-size: 20px;
     line-height: 35px;
+    @apply mb-3 md:mb-6
+
 }
 
 .post table {
@@ -195,4 +198,14 @@ code.hljs {
 }
 .ant-input-search-button{
     @apply flex justify-center items-center
+}
+.post ul {
+    font-size: 20px;
+    line-height: 35px;
+    @apply list-disc px-3 mb-3 md:mb-6
+}
+.post ol {
+    font-size: 20px;
+    line-height: 35px;
+    @apply list-decimal px-3 mb-3 md:mb-6
 }
