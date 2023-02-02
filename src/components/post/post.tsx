@@ -45,8 +45,8 @@ function image(coverImage:string){
         return<Image
             src={coverImage}
             alt=''
-            width={300}
-            height={300}
+            width={851}
+            height={851}
             className='w-full'
             blurDataURL={coverImage}
             placeholder="blur"
