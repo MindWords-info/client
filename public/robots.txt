@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.mindwords.info
+Host: https://www.mindwords.info/
 
 # Sitemaps
 Sitemap: https://www.mindwords.info/sitemap.xml
