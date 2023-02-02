@@ -13,7 +13,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={poppins.className}>
         <head/>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"/>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-1NST83KHSS"/>
         <Script
             id='google-analytics'
             strategy="afterInteractive"

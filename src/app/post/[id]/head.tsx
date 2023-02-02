@@ -11,7 +11,7 @@ export default async function Head({params}: { params: { id: any } }) {
 
             {/*Og*/}
             <meta property="og:url"
-                  content="https://mindwords.info"/>
+                  content={`https://mindwords.info/post/${post.data.slug}`}/>
             <meta property="og:type" content="article"/>
             <meta property="og:title" content={post.data.title}/>
             <meta property="og:description" content={post.data.shortDescription}/>
@@ -23,7 +23,7 @@ export default async function Head({params}: { params: { id: any } }) {
             <meta name="twitter:card" content="summary_large_image"/>
             <meta name="twitter:title" content={post.data.title}/>
             <meta name="twitter:description" content={post.data.shortDescription}/>
-            <meta name="twitter:site" content="https://mindwords.info"/>
+            <meta name="twitter:site" content={`https://mindwords.info/post/${post.data.slug}`}/>
             <meta name="twitter:image" content={`https://www.mindwords.info/api/og?image=https://api.mindwords.xyz/files/uploads/${post.data.images?.coverImage || ''}&title=${post.data.title}`}/>
             <meta name="twitter:type" content="article"/>
         </>
