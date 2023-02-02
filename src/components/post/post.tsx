@@ -40,7 +40,6 @@ post: any
 }
 
 function image(coverImage:string){
-    console.log(coverImage)
     if(coverImage !=='') {
         return<Image
             src={coverImage}

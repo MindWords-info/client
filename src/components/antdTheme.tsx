@@ -53,7 +53,6 @@ export default function AntDTheme({
     };
 
     const onSelect = (value: string) => {
-        console.log('onSelect', value);
     };
 
     const headerStyle = {
