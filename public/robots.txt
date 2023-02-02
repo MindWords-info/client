@@ -1,2 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://mindwords.info
+
+# Sitemaps
+Sitemap: https://mindwords.info/sitemap.xml
