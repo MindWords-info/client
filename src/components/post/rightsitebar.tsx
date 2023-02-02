@@ -25,12 +25,7 @@ export default function Rightsitebar({
                     <div className="flex justify-center">{author?.email || ''}</div>
                     <div>{author?.bio || ''}</div>
                     <br/>
-                    <SocialMedias socialMedias={[
-                        {
-                            platform: "FACEBOOK",
-                            link: "https://www.facebook.com/shafipolu/",
-                        }
-                    ]}/>
+                    <SocialMedias socialMedias={author?.socialMedia||[]}/>
                     <Divider></Divider>
                     <div></div>
                 </div>
