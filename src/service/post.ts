@@ -1,21 +1,20 @@
 import "server-only";
-export async function getPosts({pagination}: { pagination: {pageNumber:number,limitPerPage:number} }) {
-    const objectWithData = {
-        "pagination":{
-            "pageNumber":pagination.pageNumber,
-            "limitPerPage":pagination.limitPerPage
-        },
-        "query":{
 
+export async function getPosts({pagination}: { pagination: { pageNumber: number, limitPerPage: number } }) {
+    const objectWithData = {
+        "pagination": {
+            "pageNumber": pagination.pageNumber,
+            "limitPerPage": pagination.limitPerPage
         },
-        "sort":{
-            "sortBy":"createdAt",
+        "query": {},
+        "sort": {
+            "sortBy": "createdAt",
             "sortOrder": -1
         }
     }
     const res = await fetch(`${process.env.HOST}/post`,
         {
-            body:JSON.stringify(objectWithData),
+            body: JSON.stringify(objectWithData),
             cache: "force-cache",
             method: 'POST',
             headers: {
@@ -27,7 +26,11 @@ export async function getPosts({pagination}: { pagination: {pageNumber:number,li
 }
 
 export async function getPost({postUrl}: { postUrl: string }) {
-    const res = await fetch(`${process.env.HOST}/post/`+postUrl)
+    const res = await fetch(`${process.env.HOST}/post/` + postUrl, {
+            cache: "force-cache",
+            next: {revalidate: 60 * 5}
+        }
+    )
     const ggg = res.json()
     return ggg
 }
