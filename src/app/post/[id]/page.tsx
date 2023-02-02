@@ -9,6 +9,7 @@ export default async function Loader({ params }: { params: { id: any } }) {
 
   return (
     <div className="md:container md:mx-auto">
+
       <div className="grid md:grid-cols-12 grid-cols-1 md:gap-6 space-y-6">
         <div className="col-span-1">
           <nav className="space-y-2 md:fixed  hidden md:block md:mt-3">

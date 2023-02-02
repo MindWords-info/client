@@ -101,7 +101,7 @@ export default function AntDTheme({
                         </Content>
 
                     </Layout>
-                    <Footer style={{ textAlign: 'center' }}>Mind Words ©2023 Design and Dev Shafiul Islam</Footer>
+                    <Footer style={{ textAlign: 'center' }}></Footer>
                 </Layout>
 
             </ConfigProvider>
