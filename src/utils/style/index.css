@@ -209,3 +209,20 @@ code.hljs {
     line-height: 35px;
     @apply list-decimal px-3 mb-3 md:mb-6
 }
+.post #linkTool{
+    @apply border border-gray-300 rounded grid md:grid-cols-8 grid-cols-1 items-center p-3 gap-3
+}
+.post #linkTool div:nth-child(1) {
+    order: 2;
+    @apply col-span-6
+}
+.post #linkTool div:nth-child(2) {
+    order: 1;
+    @apply col-span-2
+}
+.post #linkTool  img{
+    @apply w-full md:w-[300px]
+}
+.post #linkTool  p{
+    margin: 0;
+}
